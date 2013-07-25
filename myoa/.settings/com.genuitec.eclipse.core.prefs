@@ -1,0 +1,4 @@
+#Wed Jul 24 17:41:00 CST 2013
+eclipse.preferences.version=1
+validator.Checked=WebRoot/script/jquery_treeview/jquery.treeview.js,WebRoot/WEB-INF/jsp/public/common.jspf,WebRoot/script/jquery_validate/jquery.validate.js,WebRoot/script/pageCommon.js,WebRoot/script/jquery.js
+validator.Unchecked=

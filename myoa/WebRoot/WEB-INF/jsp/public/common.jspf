@@ -1,0 +1,12 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<script language="javascript" src="script/jquery.js"></script>
+<script language="javascript" src="script/pageCommon.js"></script>
+<script language="javascript" src="script/PageUtils.js"></script>
+<script language="javascript" src="script/DemoData.js"></script>
+<script language="javascript" src="script/DataShowManager.js"></script>
+<link type="text/css" rel="stylesheet" href="style/blue/pageCommon.css" />
+
+<script type="text/javascript">
+	
+</script>

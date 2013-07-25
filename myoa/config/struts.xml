@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="false" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkPrivileg" class="com.czy.myoa.interceptor.CheckPrivilegInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限 -->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkPrivileg"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="loginUI">/WEB-INF/jsp/userAction/loginUI.jsp</result>
+		</global-results>
+
+		<!-- home -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+		<!-- 岗位 -->
+		<action name="roleAction_*" class="roleAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/roleAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/roleAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/roleAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">roleAction_list</result>
+			<result name="setPrivilegeUI">/WEB-INF/jsp/roleAction/setPrivilegeUI.jsp</result>
+		</action>
+
+		<!-- 部门 -->
+		<action name="departmentAction_*" class="departmentAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/departmentAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/departmentAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/departmentAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">departmentAction_list</result>
+		</action>
+
+		<!-- 用户 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/userAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/userAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/userAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">userAction_list</result>
+			<result name="toIndex" type="redirectAction">homeAction_index</result>
+		</action>
+	</package>
+
+	<!-- Add packages here -->
+</struts>
