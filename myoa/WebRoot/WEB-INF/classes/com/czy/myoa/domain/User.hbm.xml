@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.czy.myoa.domain">
+
+	<class name="User" table="user">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="loginName" />
+		<property name="password" />
+		<property name="name" />
+		<property name="gender" />
+		<property name="phoneNumber" />
+		<property name="email" />
+		<property name="description" />
+		<set name="roles" table="user_role" lazy="false">
+			<key column="userId"></key>
+			<many-to-many class="Role" column="roleId"></many-to-many>
+		</set>
+		
+		<many-to-one name="department" column="departmentId" class="Department" lazy="false"></many-to-one>
+		
+	</class>
+
+</hibernate-mapping>
