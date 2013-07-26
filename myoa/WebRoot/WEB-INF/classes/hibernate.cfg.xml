@@ -39,6 +39,7 @@
 	<mapping resource="com/czy/myoa/domain/Role.hbm.xml" />
 	<mapping resource="com/czy/myoa/domain/Department.hbm.xml" />
 	<mapping resource="com/czy/myoa/domain/Privilege.hbm.xml" />
+	<mapping resource="com/czy/myoa/domain/Forum.hbm.xml" />
 
 
 

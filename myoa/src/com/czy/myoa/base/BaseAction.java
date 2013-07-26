@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.czy.myoa.service.DepartmentService;
+import com.czy.myoa.service.ForumService;
 import com.czy.myoa.service.PrivilegeService;
 import com.czy.myoa.service.RoleService;
 import com.czy.myoa.service.UserService;
@@ -30,6 +31,9 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	
 	@Resource
 	protected PrivilegeService privilegeService;
+	
+	@Resource
+	protected ForumService forumService;
 
 	protected T model;
 
